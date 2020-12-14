@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  resources :homes, only: :index
+  devise_for :users
+
+  root to: 'homes#index'
+
+  resources :users, only: [:show, :edit, :update]
 end
