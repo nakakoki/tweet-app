@@ -10,6 +10,24 @@
   </head>
 
   <body>
+    <header>
+      <div class="head-logo">
+        <h1><%= link_to "TweetApp", root_path %></h1>
+      </div>
+      <div class="head-lists">
+        <ul class="lists">
+          <% if user_signed_in? %>
+            <li class="list"><%= link_to current_user.nickname, user_path(current_user.id) %>さん</li>
+            <li class="list"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li class="list"><%= link_to "投稿する",new_tweet_path %></li>
+          <% else %>
+            <li class="list"><%= link_to "新規登録", new_user_registration_path %></li>
+            <li class="list"><%= link_to "ログイン", new_user_session_path %></li>
+          <% end %>
+          <li class="list"><%= link_to "投稿一覧", tweets_path %></li>
+        </ul>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>

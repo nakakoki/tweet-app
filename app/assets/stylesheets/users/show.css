@@ -1,0 +1,18 @@
+.user-show {
+  height: 100vh;
+  text-align: center;
+  background-color: azure;
+  
+}
+
+
+.user h2 {
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.user p {
+  font-size: 23px;
+  margin-bottom: 15px;
+}
