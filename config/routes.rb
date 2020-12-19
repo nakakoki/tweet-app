@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   root to: 'homes#index'
 
-  resources :tweets, only: [:index, :new, :create]
+  resources :tweets, only: [:new, :create]
   resources :users, only: [:show, :edit, :update]
 end

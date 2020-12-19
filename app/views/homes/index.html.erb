@@ -1,8 +1,34 @@
-
-<div class="main-warapper">
-  <div class="main-top">
-    <div class="top-title">
-      <h2>好きなことを好きな人と</h2>
+<% if user_signed_in? %>
+  <div class="contents-row">
+    <div class="contents">
+      <div class="content">
+        <% @tweets.each do |tweet| %>
+          <div class="content-block">
+            <div class="content-top">
+              <%= tweet.user.nickname %>
+            </div>
+            <div class="content-center">
+              <div class="title">
+                <%= tweet.title %>
+              </div>
+              <div class="text">
+                <%= tweet.text %>
+              </div>
+            </div>
+            <div class="content-image">
+              <%= image_tag tweet.image.variant(resize: '500*500') if tweet.image.attached? %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+<% else %>
+  <div class="main-warapper">
+    <div class="main-top">
+      <div class="top-title">
+        <h2>好きなことを好きな人と</h2>
+      </div>
+    </div>
+  </div>
+<% end %>
