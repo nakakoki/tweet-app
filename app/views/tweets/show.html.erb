@@ -1,0 +1,47 @@
+<%# 商品の概要%>
+<div class="tweet-show">
+  <div class= "tweet-box">
+    <h2 class="tweet-title">
+      <%= @tweet.title %>
+    </h2>
+    <div class="tweet-text">
+      <%= @tweet.text%>
+    </div>
+    <div class="tweet-image">
+      <%= image_tag @tweet.image.variant(resize: '500*500') %>
+    </div>
+  </div>
+  <div class="tweet-comment">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
+        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= f.submit "SEND" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>
+            <strong><%= link_to comment.user.nickname, "/user/#{comment.user_id}" %></strong>
+            <%= comment.text %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  <% if current_user.id == @tweet.user.id && @tweet %>
+    <%= link_to '商品の編集', edit_tweet_path, method: :get, class: "tweet-red-btn" %>
+    <p class='or-text'>or</p>
+    <%= link_to '削除', tweet_path, method: :delete, class:'tweet-destroy' %>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+

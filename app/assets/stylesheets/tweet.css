@@ -1,0 +1,47 @@
+.contents {
+  text-align: center;
+}
+
+.contents{
+  height: 100%;
+  width: 780px;
+  margin: auto;
+}
+
+.content {
+  margin: 30px;
+}
+
+.content-block {
+  margin: 10px 0;
+  border: 2px solid;
+}
+
+.content-top {
+  height: 50px;
+  width: auto;
+  padding-top: 15px;
+  margin: 0 150px; 
+}
+
+.content-center {
+  height: 100%;
+  width: auto;
+  margin: 0 50px;
+}
+
+.title {
+  height: 100%;
+  border-bottom: 1px solid;
+}
+
+.text {
+  
+}
+
+.content-image {
+  height: 100px;
+  width: auto;
+  margin: 0 50px;
+}
+

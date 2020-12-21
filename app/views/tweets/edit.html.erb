@@ -1,0 +1,37 @@
+<div class="contents row">
+  <div class="container">
+    <h3>投稿する</h3>
+    <%= form_with(model: @tweet, local: true) do |f| %>
+      <div class="form-group">
+        <div class="form-wrap">
+          <label class="form-text">Title<label>
+        <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :title, class: "input-default", id:"title", placeholder: "title" %>
+      </div>
+
+      <div class="img-upload">
+        <div class="weight-bold-text">
+          出品画像
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"item-image" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-wrap">
+          <label class="form-text">Text<label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :text, class: "input-default", id:"text", placeholder: "text", row: "10" %>
+      </div>
+
+      <%= f.submit "EDIT" %>
+    <% end %>
+  </div>
+</div>
