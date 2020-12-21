@@ -8,10 +8,28 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
       flash[:notice] = "投稿しました"
-      redirect_to tweets_path
+      redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @tweet = Tweet.find(params[:id])
+    @comment = Comment.new
+    @comments = @tweet.comments.includes(:user)
+  end
+
+  def edit
+    
+  end
+
+  def update
+    
+  end
+
+  def destroy
+    
   end
 
   private
